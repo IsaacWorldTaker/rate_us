@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating with GIFs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .rating {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .rating span {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .rating span:hover {
+            background-color: #ddd;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rate Us</h1>
+    <div class="rating">
+        <span onclick="showGif(1)">1</span>
+        <span onclick="showGif(2)">2</span>
+        <span onclick="showGif(3)">3</span>
+        <span onclick="showGif(4)">4</span>
+        <span onclick="showGif(5)">5</span>
+    </div>
+
+    <div id="gifContainer"></div>
+
+    <script>
+        function showGif(rating) {
+            const gifContainer = document.getElementById('gifContainer');
+            let gifUrl = '';
+
+            switch(rating) {
+                case 1:
+                    gifUrl = 'https://pbs.twimg.com/media/GPYO909WMAA4QN5?format=jpg&name=360x360'; // Low rating gif
+                    break;
+                case 2:
+                    gifUrl = 'https://i.pinimg.com/originals/16/24/ed/1624eda1af05f3574da49cb8c96efcb7.gif';
+                    break;
+                case 3:
+                    gifUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrlxKvtYJeqxRuHmljPCRBxmYZoN5LOyhf_-DOCLDjqvkVfTg9lmlEf-ETSoH5X_YgtgY&usqp=CAU';
+                    break;
+                case 4:
+                    gifUrl = 'https://media.tenor.com/nXQOiFYcCjQAAAAM/star-trek-agree.gif';
+                    break;
+                case 5:
+                    gifUrl = 'https://media.tenor.com/images/d6f8cab21bfc4d47041269144f47842e/tenor.gif'; // High rating gif
+                    break;
+                default:
+                    gifUrl = '';
+            }
+
+            gifContainer.innerHTML = gifUrl ? `<img src="${gifUrl}" alt="Rating GIF">` : '';
+        }
+    </script>
+
+</body>
+</html>
